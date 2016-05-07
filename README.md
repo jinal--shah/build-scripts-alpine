@@ -29,6 +29,7 @@ additional image layers.
 
 ### Example Dockerfile
 
+```dockerfile
         FROM gliderlabs/alpine:3.3
         MAINTAINER jinal--shah <jnshah@gmail.com>
         LABEL Name="librarian_packer_aws" Vendor="sortuniq" Version="0.0.1" \
@@ -52,5 +53,5 @@ additional image layers.
             && cd my_project
 
         CMD ["/usr/bin/make", "-C", "my_project", "build"]
-
+```
 
