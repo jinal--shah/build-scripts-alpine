@@ -48,7 +48,7 @@ additional image layers.
             && $SCRIPT_DIR/install_librarian_and_puppet.sh \
             && $SCRIPT_DIR/install_packer.sh               \
             && $SCRIPT_DIR/install_awscli.sh               \
-            && apk --no-cache add jq                       \
+            && apk --no-cache add jq make                  \
             && rm -rf /var/cache/apk/* $SCRIPT_DIR         \
             && git clone http://github.com/me/my_project   \
             && cd my_project
