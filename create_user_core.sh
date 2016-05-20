@@ -20,6 +20,7 @@ addgroup -g 500 core        \
 
 # ... verify
 if ! su - -c "/sbin/su-exec root ls -a /root" core
+then
     echo "$0 ERROR: couldn't install su-exec properly."
     exit 1
 fi
