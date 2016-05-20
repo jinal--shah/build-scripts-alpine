@@ -9,7 +9,7 @@
 # the setuid hack would let any container user run
 # as superuser.
 ###################################################
-addgroup -g 500 core \
+addgroup -g 500 core        \
 && adduser -D -h /home/core \
            -s /bin/bash     \
            -u 500 -G core   \

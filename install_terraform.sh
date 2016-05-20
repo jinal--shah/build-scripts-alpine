@@ -33,7 +33,6 @@ terraform-provider-consul
 terraform-provider-docker
 terraform-provider-github
 terraform-provider-null
-terraform-provider-packet
 terraform-provider-template
 terraform-provider-terraform
 terraform-provider-tls
@@ -68,5 +67,7 @@ if [[ -w /etc/vim/bundle ]]; then
     echo "$0 INFO: installing vim terraform plugin"
     cd /etc/vim/bundle
     git clone https://github.com/hashivim/vim-terraform.git
+    rm -rf vim-terraform/.git
+    cd $OLDPWD
 fi
 exit 0

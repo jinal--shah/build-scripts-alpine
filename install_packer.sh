@@ -30,6 +30,8 @@ if [[ -w /etc/vim/bundle ]]; then
     echo "$0 INFO: installing vim packer plugin"
     cd /etc/vim/bundle
     git clone https://github.com/hashivim/vim-packer.git
+    rm -rf vim_packer/.git
+    cd $OLDPWD
 fi
 exit 0
 
