@@ -4,7 +4,7 @@
 # N.B. bash does not come with alpine by default (ash is default shell)
 #
 APP=${APP:-packer}
-VERSION=${VERSION:-0.10.0}
+VERSION=${VERSION:-0.10.1}
 BIN_DIR="/usr/local/bin"
 ZIP="$BIN_DIR/${APP}.zip"
 BASE_URI="https://releases.hashicorp.com/${APP}"

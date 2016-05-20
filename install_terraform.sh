@@ -4,7 +4,7 @@
 # N.B. BASH does not come with alpine by default (ash is default shell)
 #
 APP=${APP:-terraform}
-VERSION=${VERSION:-0.6.15}
+VERSION=${VERSION:-0.6.16}
 BIN_DIR="/usr/local/bin"
 ZIP="$BIN_DIR/${APP}.zip" 
 BASE_URI="https://releases.hashicorp.com/${APP}"
