@@ -63,4 +63,10 @@ delete_these=$(
 
 rm $ZIP $delete_these
 
+# ... install vim plugin if needed
+if [[ -w /etc/vim/bundle ]]; then
+    echo "$0 INFO: installing vim terraform plugin"
+    cd /etc/vim/bundle
+    git clone https://github.com/hashivim/vim-terraform.git
+fi
 exit 0
