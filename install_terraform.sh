@@ -1,4 +1,4 @@
-#!env sh
+#!/bin/sh
 # vim: et smartindent sr sw=4 ts=4:
 #
 # N.B. BASH does not come with alpine by default (ash is default shell)
@@ -8,7 +8,7 @@ VERSION=${VERSION:-0.6.15}
 BIN_DIR="/usr/local/bin"
 ZIP="$BIN_DIR/${APP}.zip" 
 BASE_URI="https://releases.hashicorp.com/${APP}"
-DOWNLOAD_URI="$BASE_URI/$VERSION/${APP}_${VERSION}_linux_amd64.zip"
+DL_URI="$BASE_URI/$VERSION/${APP}_${VERSION}_linux_amd64.zip"
 
 echo "... downloading: $APP $VERSION"
 wget -q -t 5 -w 3 -T 60 -O $ZIP $DL_URI
