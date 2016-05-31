@@ -1,17 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 # vim: et smartindent sr sw=4 ts=4:
 #
 # N.B. BASH does not come with alpine by default (ash is default shell)
 #
 APP=${APP:-terraform}
-VERSION=${VERSION:-0.6.16}
+VERSION=${VERSION:-0.6.15}
 BIN_DIR="/usr/local/bin"
 ZIP="$BIN_DIR/${APP}.zip" 
 BASE_URI="https://releases.hashicorp.com/${APP}"
-DL_URI="$BASE_URI/$VERSION/${APP}_${VERSION}_linux_amd64.zip"
+DOWNLOAD_URI="$BASE_URI/$VERSION/${APP}_${VERSION}_linux_amd64.zip"
 
 echo "... downloading: $APP $VERSION"
-wget -q -t 5 -w 3 -T 60 -O $ZIP $DL_URI
+wget -q -T 60 -O $ZIP $DOWNLOAD_URI
 unzip $ZIP -d $BIN_DIR
 
 if $APP --version | grep $VERSION 2>/dev/null
@@ -42,7 +42,7 @@ terraform-provisioner-remote-exec
 "
 
 terraform_bins=$(
-    ls -1 $BIN_DIR/terraform*    \
+    ls -1 $BIN_DIR/terraform-*   \
     | xargs -n1 -i{} basename {} \
     | sort                       \
     | uniq
