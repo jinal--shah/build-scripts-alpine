@@ -4,7 +4,6 @@
 # - adds pathogen for all users
 # - makes comments readable
 # - adds my preferred indentation defaults
-USER=core
 VIM_INDENT=${VIM_INDENT:-4}
 VIMRC=/etc/vim/vimrc
 
