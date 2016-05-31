@@ -4,7 +4,7 @@
 # N.B. BASH does not come with alpine by default (ash is default shell)
 #
 APP=${APP:-terraform}
-VERSION=${VERSION:-0.6.15}
+VERSION=${VERSION:-0.6.16}
 BIN_DIR="/usr/local/bin"
 ZIP="$BIN_DIR/${APP}.zip" 
 BASE_URI="https://releases.hashicorp.com/${APP}"
@@ -33,7 +33,6 @@ terraform-provider-consul
 terraform-provider-docker
 terraform-provider-github
 terraform-provider-null
-terraform-provider-packet
 terraform-provider-template
 terraform-provider-terraform
 terraform-provider-tls
@@ -63,4 +62,12 @@ delete_these=$(
 
 rm $ZIP $delete_these
 
+# ... install vim plugin if needed
+if [[ -w /etc/vim/bundle ]]; then
+    echo "$0 INFO: installing vim terraform plugin"
+    cd /etc/vim/bundle
+    git clone https://github.com/hashivim/vim-terraform.git
+    rm -rf vim-terraform/.git
+    cd $OLDPWD
+fi
 exit 0

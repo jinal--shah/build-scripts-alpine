@@ -4,7 +4,7 @@
 # N.B. bash does not come with alpine by default (ash is default shell)
 #
 APP=${APP:-packer}
-VERSION=${VERSION:-0.10.0}
+VERSION=${VERSION:-0.10.1}
 BIN_DIR="/usr/local/bin"
 ZIP="$BIN_DIR/${APP}.zip"
 BASE_URI="https://releases.hashicorp.com/${APP}"
@@ -24,4 +24,14 @@ else
     echo "$0 INFO: failed to install"
     exit 1
 fi
+
+# ... install vim plugin if needed
+if [[ -w /etc/vim/bundle ]]; then
+    echo "$0 INFO: installing vim packer plugin"
+    cd /etc/vim/bundle
+    git clone https://github.com/hashivim/vim-packer.git
+    rm -rf vim_packer/.git
+    cd $OLDPWD
+fi
+exit 0
 
