@@ -19,7 +19,7 @@ file_to_patch=$safe_yaml_lib/syck_node_monkeypatch.rb
 
 echo "$0 INFO: installing make, puppet3.x, ruby, librarian-puppet, git, ssh"
 
-apk add --update --no-cache \
+apk add --no-cache  \
     bash            \
     build-base      \
     git             \

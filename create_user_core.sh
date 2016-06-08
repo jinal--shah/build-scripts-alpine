@@ -9,7 +9,7 @@
 # the setuid hack would let any container user run
 # as superuser.
 ###################################################
-apk --no-cache --update add su-exec bash \
+apk --no-cache add su-exec bash \
 && addgroup -g 500 core     \
 && adduser -D -h /home/core \
            -s /bin/bash     \
