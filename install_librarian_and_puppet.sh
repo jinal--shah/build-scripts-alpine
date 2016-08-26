@@ -11,9 +11,8 @@
 # - NOTE: puppet requires a monkeypatch to a monkeypatch to work with ruby>=2.2
 #         (see ruby -pie line below)
 #
-ruby_ver=${RUBY_VERSION:-2.2.0}
 puppet_ver=${PUPPET_VERSION:-3.8.7}
-gemstore=/usr/lib/ruby/gems/$ruby_ver/gems
+gemstore=/usr/lib/ruby/gems/*/gems
 safe_yaml_lib=$gemstore/puppet-$puppet_ver/lib/puppet/vendor/safe_yaml/lib/safe_yaml
 file_to_patch=$safe_yaml_lib/syck_node_monkeypatch.rb
 
