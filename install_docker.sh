@@ -9,7 +9,7 @@ echo "$REPO_URI" >>$REPO_FILE
 if apk --no-cache --update add docker
 then
     echo "$0 ... installed - removing $REPO_URI from repo list"
-    sed "/$REPO_URI/d" $REPO_FILE
+    sed -i "/$URI_ESC/d" $REPO_FILE
 else
     echo "$0 ... install failure"
     exit 1
