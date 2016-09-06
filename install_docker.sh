@@ -4,7 +4,13 @@ REPO_URI="http://alpine.gliderlabs.com/alpine/v3.3/community"
 COMPATIBLE_DOCKER_VERSION=1.9.1-r2
 URI_ESC="$(echo "$REPO_URI" | sed -e 's/\//\\\//g')"
 REPO_FILE=/etc/apk/repositories
+ID_ON_COREOS=233
 echo "$0: installing docker compatible with coreos"
+echo "$0: precreating group and user to match coreos (233)"
+
+addgroup -g $ID_ON_COREOS docker
+adduser -D -H -u $ID_ON_COREOS -G docker docker
+
 echo "$0 ... hacking repo list for suitable version"
 echo "$REPO_URI" >>$REPO_FILE
 if apk --no-cache --update add docker=$COMPATIBLE_DOCKER_VERSION
