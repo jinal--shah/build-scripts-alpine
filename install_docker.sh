@@ -1,7 +1,7 @@
 #!/bin/sh
 # vim: et smartindent sr sw=4 ts=4:
 REPO_URI="http://alpine.gliderlabs.com/alpine/v3.3/community"
-COMPATIBLE_DOCKER_VERSION=1.9.1-r3
+COMPATIBLE_DOCKER_VERSION=1.9.1-r2
 URI_ESC="$(echo "$REPO_URI" | sed -e 's/\//\\\//g')"
 REPO_FILE=/etc/apk/repositories
 echo "$0: installing docker compatible with coreos"
