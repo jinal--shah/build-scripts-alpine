@@ -4,7 +4,7 @@
 # N.B. BASH does not come with alpine by default (ash is default shell)
 #
 APP=${APP:-terraform}
-VERSION=${VERSION:-0.6.15}
+VERSION=${VERSION:-0.7.3}
 BIN_DIR="/usr/local/bin"
 ZIP="$BIN_DIR/${APP}.zip" 
 BASE_URI="https://releases.hashicorp.com/${APP}"
@@ -22,45 +22,7 @@ else
     exit 1
 fi
 
-# ... clean up
-
-# ... lots of terraform binaries we just don't use.
-#     so delete all but the ones we do ...
-terraform_to_keep="
-terraform
-terraform-provider-aws
-terraform-provider-consul
-terraform-provider-docker
-terraform-provider-github
-terraform-provider-null
-terraform-provider-template
-terraform-provider-terraform
-terraform-provider-tls
-terraform-provisioner-file
-terraform-provisioner-local-exec
-terraform-provisioner-remote-exec
-"
-
-terraform_bins=$(
-    ls -1 $BIN_DIR/terraform-*   \
-    | xargs -n1 -i{} basename {} \
-    | sort                       \
-    | uniq
-)
-
-terraform_to_keep=$(
-    echo "$terraform_to_keep" \
-    | sort                    \
-    | uniq                    \
-    | sed '/^$/d'
-)
-
-delete_these=$(
-    comm -13 <(echo "$terraform_to_keep") <(echo "$terraform_bins") \
-    | sed -e "s#^#$BIN_DIR/#"
-)
-
-rm $ZIP $delete_these
+rm $ZIP
 
 # ... install vim plugin if needed
 if [[ -w /etc/vim/bundle ]]; then
